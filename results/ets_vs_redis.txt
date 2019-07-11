@@ -1,0 +1,50 @@
+Operating System: macOS
+CPU Information: Intel(R) Core(TM) i7-7920HQ CPU @ 3.10GHz
+Number of Available Cores: 8
+Available memory: 16 GB
+Elixir 1.7.4
+Erlang 20.2
+
+Benchmark suite executing with the following configuration:
+warmup: 2 s
+time: 5 s
+memory time: 0 ns
+parallel: 1
+inputs: none specified
+Estimated total run time: 14 s
+
+Benchmarking ets_insert...
+Benchmarking redis_insert...
+
+Name                   ips        average  deviation         median         99th %
+ets_insert          4.09 M        0.25 μs   ±233.58%           0 μs           1 μs
+redis_insert     0.00165 M      605.32 μs    ±44.73%         560 μs        1520 μs
+
+Comparison: 
+ets_insert          4.09 M
+redis_insert     0.00165 M - 2476.20x slower +605.07 μs
+Operating System: macOS
+CPU Information: Intel(R) Core(TM) i7-7920HQ CPU @ 3.10GHz
+Number of Available Cores: 8
+Available memory: 16 GB
+Elixir 1.7.4
+Erlang 20.2
+
+Benchmark suite executing with the following configuration:
+warmup: 2 s
+time: 5 s
+memory time: 0 ns
+parallel: 1
+inputs: none specified
+Estimated total run time: 14 s
+
+Benchmarking ets_read...
+Benchmarking redis_read...
+
+Name                 ips        average  deviation         median         99th %
+ets_read          3.83 M        0.26 μs  ±9711.64%           0 μs        0.98 μs
+redis_read     0.00166 M      602.42 μs    ±64.88%      546.98 μs     1593.28 μs
+
+Comparison: 
+ets_read          3.83 M
+redis_read     0.00166 M - 2305.14x slower +602.16 μs

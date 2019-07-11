@@ -1,0 +1,23 @@
+- You've got the urge nay the need to cache something
+  - You reach for Redis, but wait! There's got to be a better way! (depending on your use case)
+  - "Need a Caching solution? Why not ETS?"
+- ETS vs Redis
+  - Redis is super fast. (It's written in C for God's sake)
+  - But you have to make a network call
+  - Demo time using localhost to show ETS's superior performance
+- Demo notes
+  1. Vanilla Ets vs Redis (ets_vs_redis.txt) ETS is much quicker here but it's a little unfair
+    to Redis. We're making a network call for every single read/write. Not really how we use it
+    in the real world.
+  2. Redis pipeline
+- Concurrency is muy bueno
+  - You could just write your own simple cache using a Genserver and you could have async writes using Genserver.cast
+  instead of Genserver.call but this would be problematic with reads since Genserver.cast does not return a response.
+  - When creating an ETS table you can set the options 'read_concurrency' to true (there's also a 'write_concurrency' option)
+- ETS is great but there are some cons
+  - The worst is erlang's crappy error handling. If anything goes wrong you get the same error, the dreaded Argument error.
+  - If you need you cached data to be consistent across multiple machines, this can be a bit trickier. It's possible using
+      distributed Erlang/Elixir, but this requires additional development on your part. So, a well-supported solution
+      like Redis might just be easier.
+- ETS tutorial
+- If there's time maybe goof around with some distributed ets stuff
